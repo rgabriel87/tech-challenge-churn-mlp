@@ -65,45 +65,46 @@ Principais variáveis utilizadas:
 ## 4. Estrutura do projeto
 
 tech-challenge-churn-mlp/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── docs/
-│   ├── architecture.md
-│   ├── model_card.md
-│   └── monitoring_plan.md
-│
-├── models/
-│   ├── baseline_results.json
-│   ├── mlp_metadata.json
-│   ├── mlp_model.pt
-│   └── preprocessor.joblib
-│
-├── notebooks/
-│
-├── src/
-│   └── churn/
-│       ├── __init__.py
-│       ├── api.py
-│       ├── config.py
-│       ├── data.py
-│       ├── predict.py
-│       ├── preprocessing.py
-│       ├── train_baselines.py
-│       └── train_mlp.py
-│
-├── tests/
-│   ├── test_api.py
-│   ├── test_schema.py
-│   └── test_smoke.py
-│
-├── .gitignore
-├── Makefile
-├── pyproject.toml
-├── README.md
-└── requirements.txt
+
+`│
+`├── data/
+`│   ├── raw/
+`│   └── processed/
+`│
+`├── docs/
+`│   ├── architecture.md
+`│   ├── model_card.md
+`│   └── monitoring_plan.md
+`│
+`├── models/
+`│   ├── baseline_results.json
+`│   ├── mlp_metadata.json
+`│   ├── mlp_model.pt
+`│   └── preprocessor.joblib
+`│
+`├── notebooks/
+`│
+`├── src/
+`│   └── churn/
+`│       ├── __init__.py
+`│       ├── api.py
+`│       ├── config.py
+`│       ├── data.py
+`│       ├── predict.py
+`│       ├── preprocessing.py
+`│       ├── train_baselines.py
+`│       └── train_mlp.py
+`│
+`├── tests/
+`│   ├── test_api.py
+`│   ├── test_schema.py
+`│   └── test_smoke.py
+`│
+`├── .gitignore
+`├── Makefile
+`├── pyproject.toml
+`├── README.md
+`└── requirements.txt
 
 
 ## 5. Tecnologias utilizadas
@@ -147,7 +148,7 @@ Esse comando acima treina:
 * Gradient Boosting;
 
 Os resultados são salvos em:
-models/baseline_results.json
+`models/baseline_results.json`
 
 
 ## 8. Como treinar a MLP em PyTorch
@@ -176,6 +177,8 @@ Esse comando treina a rede neural MLP, aplica early stopping, registra métricas
 | Modelo      | Accuracy | Precision | Recall |     F1 | ROC-AUC | PR-AUC |
 | ----------- | -------: | --------: | -----: | -----: | ------: | -----: |
 | MLP PyTorch |   0.7899 |    0.6283 | 0.5107 | 0.5634 |  0.8401 | 0.6327 |
+
+Observação: Também foi executada validação cruzada estratificada com `StratifiedKFold` em 5 folds para os modelos baseline, com os resultados salvos em `models/stratified_cv_results.json` e registrados no MLflow.
 
 
 ## 10. Interpretação dos resultados
@@ -291,9 +294,10 @@ O projeto utiliza:
 * dependências listadas em requirements.txt
 * configuração em pyproject.toml
 * seed fixa
-* split estratificado
 * artefatos salvos em models/
 * código modular em src/churn/
+* split treino/teste estratificado
+* validação cruzada estratificada com StratifiedKFold em 5 folds para os modelos baseline
 
 
 ## 19. Limitações

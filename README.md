@@ -1,4 +1,4 @@
-  # Tech Challenge 01 - Churn Prediction com MLP
+# Tech Challenge 01 - Churn Prediction com MLP
 
 Projeto desenvolvido para o Tech Challenge da Pós Tech FIAP em Machine Learning Engineering.
 

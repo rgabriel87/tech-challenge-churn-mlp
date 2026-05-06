@@ -97,6 +97,8 @@ A saída do modelo é convertida em probabilidade usando sigmoid.
 | Otimizador       |              Adam |
 | Seed             |                42 |
 
+Observação: Além do split treino/teste estratificado, foi executada validação cruzada estratificada com `StratifiedKFold` em 5 folds para os modelos baseline. Essa etapa foi utilizada para avaliar a estabilidade dos modelos em diferentes divisões da base, preservando a proporção entre clientes churn e não churn em cada fold.
+
 
 ## 10. Métricas da MLP
 

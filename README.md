@@ -1,4 +1,4 @@
-# Tech Challenge 01 - Churn Prediction com MLP
+  # Tech Challenge 01 - Churn Prediction com MLP
 
 Projeto desenvolvido para o Tech Challenge da Pós Tech FIAP em Machine Learning Engineering.
 
@@ -62,49 +62,46 @@ Principais variáveis utilizadas:
 | Churn           | Indica se houve cancelamento                |
 
 
-## 4. Estrutura do projeto
+## ## 4. Estrutura do projeto
 
+```text
 tech-challenge-churn-mlp/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── docs/
+│   ├── architecture.md
+│   ├── model_card.md
+│   └── monitoring_plan.md
+├── models/
+│   ├── baseline_results.json
+│   ├── mlp_metadata.json
+│   ├── mlp_model.pt
+│   ├── preprocessor.joblib
+│   └── stratified_cv_results.json
+├── notebooks/
+├── src/
+│   └── churn/
+│       ├── __init__.py
+│       ├── api.py
+│       ├── config.py
+│       ├── data.py
+│       ├── predict.py
+│       ├── preprocessing.py
+│       ├── stratified_cv.py
+│       ├── train_baselines.py
+│       └── train_mlp.py
+├── tests/
+│   ├── test_api.py
+│   ├── test_schema.py
+│   └── test_smoke.py
+├── .gitignore
+├── Makefile
+├── pyproject.toml
+├── README.md
+└── requirements.txt
 
-`│
-`├── data/
-`│   ├── raw/
-`│   └── processed/
-`│
-`├── docs/
-`│   ├── architecture.md
-`│   ├── model_card.md
-`│   └── monitoring_plan.md
-`│
-`├── models/
-`│   ├── baseline_results.json
-`│   ├── mlp_metadata.json
-`│   ├── mlp_model.pt
-`│   └── preprocessor.joblib
-`│
-`├── notebooks/
-`│
-`├── src/
-`│   └── churn/
-`│       ├── __init__.py
-`│       ├── api.py
-`│       ├── config.py
-`│       ├── data.py
-`│       ├── predict.py
-`│       ├── preprocessing.py
-`│       ├── train_baselines.py
-`│       └── train_mlp.py
-`│
-`├── tests/
-`│   ├── test_api.py
-`│   ├── test_schema.py
-`│   └── test_smoke.py
-`│
-`├── .gitignore
-`├── Makefile
-`├── pyproject.toml
-`├── README.md
-`└── requirements.txt
+```
 
 
 ## 5. Tecnologias utilizadas

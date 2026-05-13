@@ -32,17 +32,16 @@ Construir um pipeline de Machine Learning para classificação binária, utiliza
 Foi utilizado o dataset público Telco Customer Churn.
 
 Arquivo esperado:
-
 data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
 
 A variável alvo é:
-
 Churn
 
 Mapeamento da variável alvo:
-
+```text
 No  -> 0
 Yes -> 1
+```
 
 Principais variáveis utilizadas:
 
@@ -128,6 +127,7 @@ tech-challenge-churn-mlp/
 
 ## 6. Como configurar o ambiente
 
+```text
 * 6.1 Criar ambiente virtual - Execute:
 python -m venv .venv
 
@@ -136,18 +136,16 @@ python -m venv .venv
 
 * 6.3 Instalar dependências - Execute:
 pip install -r requirements.txt
-
+```
 
 ## 7. Análise Exploratória dos Dados
 
 A análise exploratória foi registrada no notebook:
-
 ```text
 notebooks/01_eda_telco_churn.ipynb
 ```
 
 O notebook contém:
-
 * volume do dataset;
 * tipos de dados;
 * verificação de valores ausentes;
@@ -163,7 +161,6 @@ Pra executar o notebook, abra o arquivo no VS Code ou Jupyter e selecione o kern
 ## 8.ML Canvas
 
 O ML Canvas do projeto está documentado em:
-
 ```text
 docs/ml_canvas.md
 ```
@@ -171,8 +168,7 @@ Esse documento resume o problema de negócio, stakeholders, métricas técnicas,
 
 
 ## 9. Como treinar os modelos baseline
-Execute:
-python -m src.churn.train_baselines
+Execute: `python -m src.churn.train_baselines`
 
 Esse comando acima treina:
 * DummyClassifier;
@@ -185,8 +181,7 @@ Os resultados são salvos em:
 
 
 ## 10. Como treinar a MLP em PyTorch
-Execute:
-python -m src.churn.train_mlp
+Execute: `python -m src.churn.train_mlp`
 
 Esse comando treina a rede neural MLP, aplica early stopping, registra métricas no MLflow e salva os artefatos:
 * models/mlp_model.pt
@@ -226,8 +221,7 @@ Em dados tabulares, é comum que modelos como Gradient Boosting ou Logistic Regr
 
 
 ## 13. Como visualizar experimentos no MLflow
-Executar:
-mlflow ui
+Executar: `mlflow ui`
 
 Depois acesse no navegador:
 http://127.0.0.1:5000
@@ -242,9 +236,7 @@ Os experimentos registrados incluem:
 
 
 ## 14. Como rodar a API
-
-Execute:
-uvicorn src.churn.api:app --reload
+Execute: `uvicorn src.churn.api:app --reload`
 
 Depois acesse:
 http://127.0.0.1:8000/docs
@@ -304,16 +296,14 @@ risk_level = medio: risco classificado como médio;
 
 
 ## 18. Como rodar os testes
-Execute:
-pytest
+Execute: `pytest`
 
 Resultado esperado:
 5 passed
 
 
 ## 19. Como rodar o lint
-Execute:
-ruff check .
+Execute: `ruff check .`
 
 Resultado esperado:
 All checks passed!

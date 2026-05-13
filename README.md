@@ -153,7 +153,7 @@ O notebook contém:
 Pra executar o notebook, abra o arquivo no VS Code ou Jupyter e selecione o kernel Python 3.11.
 
 
-## 8.ML Canvas
+## 8. ML Canvas
 
 O ML Canvas do projeto está documentado em:
 ```text
@@ -186,7 +186,7 @@ Esse comando treina a rede neural MLP, aplica early stopping, registra métricas
 
 ## 11. Resultados dos modelos
 
-* 9.1 Baselines
+* 11.1 Baselines
 
 | Modelo              | Accuracy | Precision | Recall |     F1 | ROC-AUC | PR-AUC |
 | ------------------- | -------: | --------: | -----: | -----: | ------: | -----: |
@@ -195,7 +195,7 @@ Esse comando treina a rede neural MLP, aplica early stopping, registra métricas
 | Random Forest       |   0.7750 |    0.5979 | 0.4652 | 0.5233 |  0.8187 | 0.6075 |
 | Dummy Classifier    |   0.7346 |    0.0000 | 0.0000 | 0.0000 |  0.5000 | 0.2654 |
 
-* 9.2 MLP PyTorch
+* 11.2 MLP PyTorch
 
 | Modelo      | Accuracy | Precision | Recall |     F1 | ROC-AUC | PR-AUC |
 | ----------- | -------: | --------: | -----: | -----: | ------: | -----: |
@@ -336,7 +336,7 @@ Possíveis melhorias futuras:
 
 * realizar tuning de hiperparâmetros;
 * testar novas arquiteturas de rede neural;
-* aplicar validação cruzada estratificada completa;
+* expandir validação cruzada para novos experimentos e ajustes de hiperparâmetros;
 * incluir explicações com feature importance ou SHAP;
 * criar deploy em nuvem;
 * adicionar autenticação na API;

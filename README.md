@@ -62,15 +62,18 @@ Principais variáveis utilizadas:
 | Churn           | Indica se houve cancelamento                |
 
 
-## 4. Estrutura do projeto
+## ## 4. Estrutura do projeto
 
 ```text
 tech-challenge-churn-mlp/
 ├── data/
 │   ├── raw/
+│   │   └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 │   └── processed/
+│       └── .gitkeep
 ├── docs/
 │   ├── architecture.md
+│   ├── ml_canvas.md
 │   ├── model_card.md
 │   └── monitoring_plan.md
 ├── models/
@@ -80,6 +83,8 @@ tech-challenge-churn-mlp/
 │   ├── preprocessor.joblib
 │   └── stratified_cv_results.json
 ├── notebooks/
+│   ├── 01_eda_telco_churn.ipynb
+│   └── README.md
 ├── src/
 │   └── churn/
 │       ├── __init__.py
@@ -100,7 +105,6 @@ tech-challenge-churn-mlp/
 ├── pyproject.toml
 ├── README.md
 └── requirements.txt
-
 ```
 
 
@@ -156,7 +160,17 @@ O notebook contém:
 Pra executar o notebook, abra o arquivo no VS Code ou Jupyter e selecione o kernel Python 3.11.
 
 
-## 8. Como treinar os modelos baseline
+## 8.ML Canvas
+
+O ML Canvas do projeto está documentado em:
+
+```text
+docs/ml_canvas.md
+```
+Esse documento resume o problema de negócio, stakeholders, métricas técnicas, métrica de negócio, hipóteses iniciais, riscos e critério de sucesso da solução.
+
+
+## 9. Como treinar os modelos baseline
 Execute:
 python -m src.churn.train_baselines
 
@@ -170,7 +184,7 @@ Os resultados são salvos em:
 `models/baseline_results.json`
 
 
-## 9. Como treinar a MLP em PyTorch
+## 10. Como treinar a MLP em PyTorch
 Execute:
 python -m src.churn.train_mlp
 
@@ -180,7 +194,7 @@ Esse comando treina a rede neural MLP, aplica early stopping, registra métricas
 * models/mlp_metadata.json
 
 
-## 10. Resultados dos modelos
+## 11. Resultados dos modelos
 
 * 9.1 Baselines
 
@@ -200,7 +214,7 @@ Esse comando treina a rede neural MLP, aplica early stopping, registra métricas
 Observação: Também foi executada validação cruzada estratificada com `StratifiedKFold` em 5 folds para os modelos baseline, com os resultados salvos em `models/stratified_cv_results.json` e registrados no MLflow.
 
 
-## 11. Interpretação dos resultados
+## 12. Interpretação dos resultados
 
 O modelo DummyClassifier teve ROC-AUC de 0.50, funcionando como referência mínima.
 
@@ -211,7 +225,7 @@ A MLP PyTorch cumpriu o objetivo principal do desafio ao demonstrar uma rede neu
 Em dados tabulares, é comum que modelos como Gradient Boosting ou Logistic Regression sejam competitivos ou até superiores a redes neurais simples. Por isso, a comparação com baselines é essencial para avaliar se a complexidade adicional da rede neural é justificada.
 
 
-## 12. Como visualizar experimentos no MLflow
+## 13. Como visualizar experimentos no MLflow
 Executar:
 mlflow ui
 
@@ -227,7 +241,7 @@ Os experimentos registrados incluem:
 * artefatos;
 
 
-## 13. Como rodar a API
+## 14. Como rodar a API
 
 Execute:
 uvicorn src.churn.api:app --reload
@@ -236,7 +250,7 @@ Depois acesse:
 http://127.0.0.1:8000/docs
 
 
-## 14. Endpoints da API
+## 15. Endpoints da API
 
 | Método | Endpoint   | Descrição                                                   |
 | ------ | ---------- | ----------------------------------------------------------- |
@@ -245,7 +259,7 @@ http://127.0.0.1:8000/docs
 | POST   | `/predict` | Recebe dados de um cliente e retorna a previsão de churn    |
 
 
-## 15. Exemplo de requisição para /predict (JSON)
+## 16. Exemplo de requisição para /predict (JSON)
 
 {
   "gender": "Female",
@@ -270,7 +284,7 @@ http://127.0.0.1:8000/docs
 }
 
 
-## 16. Exemplo de resposta da API (JSON)
+## 17. Exemplo de resposta da API (JSON)
 
 
 {
@@ -289,7 +303,7 @@ churn_probability = 0.6846: probabilidade estimada de churn de 68,46%;
 risk_level = medio: risco classificado como médio;
 
 
-## 17. Como rodar os testes
+## 18. Como rodar os testes
 Execute:
 pytest
 
@@ -297,7 +311,7 @@ Resultado esperado:
 5 passed
 
 
-## 18. Como rodar o lint
+## 19. Como rodar o lint
 Execute:
 ruff check .
 
@@ -305,7 +319,7 @@ Resultado esperado:
 All checks passed!
 
 
-## 19. Reprodutibilidade
+## 20. Reprodutibilidade
 
 O projeto utiliza:
 
@@ -319,7 +333,7 @@ O projeto utiliza:
 * validação cruzada estratificada com StratifiedKFold em 5 folds para os modelos baseline
 
 
-## 20. Limitações
+## 21. Limitações
 
 Algumas limitações do projeto:
 
@@ -331,7 +345,7 @@ Algumas limitações do projeto:
 * o deploy em nuvem não foi implementado nesta versão;
 
 
-## 21. Próximos passos
+## 22. Próximos passos
 
 Possíveis melhorias futuras:
 

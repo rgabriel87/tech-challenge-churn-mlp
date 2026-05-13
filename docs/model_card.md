@@ -46,7 +46,12 @@ O modelo utiliza variáveis cadastrais, contratuais e de consumo, como:
 * cobrança total.
 
 
-## 7. Pré-processamento
+## 7.Análise Exploratória
+
+A análise exploratória dos dados foi documentada no notebook `notebooks/01_eda_telco_churn.ipynb`, com volume da base, tipos de dados, avaliação de valores ausentes, distribuição da variável alvo e análises de churn por contrato e também por método de pagamento.
+
+
+## 8. Pré-processamento
 
 O pré-processamento foi feito com Scikit-Learn.
 
@@ -60,7 +65,7 @@ O preprocessor treinado foi salvo em:
 models/preprocessor.joblib
 
 
-## 8. Algoritmo principal
+## 9. Algoritmo principal
 
 O modelo principal é uma rede neural MLP implementada em PyTorch.
 
@@ -84,7 +89,7 @@ Linear(32, 1)
 A saída do modelo é convertida em probabilidade usando sigmoid.
 
 
-## 9. Estratégia de treinamento
+## 10. Estratégia de treinamento
 
 | Parâmetro        |             Valor |
 | ---------------- | ----------------- |
@@ -100,7 +105,7 @@ A saída do modelo é convertida em probabilidade usando sigmoid.
 Observação: Além do split treino/teste estratificado, foi executada validação cruzada estratificada com `StratifiedKFold` em 5 folds para os modelos baseline. Essa etapa foi utilizada para avaliar a estabilidade dos modelos em diferentes divisões da base, preservando a proporção entre clientes churn e não churn em cada fold.
 
 
-## 10. Métricas da MLP
+## 11. Métricas da MLP
 
 | Métrica   |  Valor |
 | --------- | -----: |
@@ -112,7 +117,7 @@ Observação: Além do split treino/teste estratificado, foi executada validaç�
 | PR-AUC    | 0.6327 |
 
 
-## 11. Comparação com baselines
+## 12. Comparação com baselines
 
 | Modelo              | ROC-AUC |
 | ------------------- | ------- |
@@ -125,7 +130,7 @@ Observação: Além do split treino/teste estratificado, foi executada validaç�
 A MLP apresentou desempenho próximo aos melhores baselines. Já o Gradient Boosting teve o maior ROC-AUC, mas a MLP cumpriu o objetivo desse desafio por implementar uma rede neural funcional com PyTorch.
 
 
-## 12. Interpretação de saída
+## 13. Interpretação de saída
 
 | Campo               | Descrição                                              |
 | ------------------- | ------------------------------------------------------ |
@@ -142,7 +147,7 @@ A MLP apresentou desempenho próximo aos melhores baselines. Já o Gradient Boos
 | Maior ou igual a 0.70 | alto  |
 
 
-## 13. Uso recomendado
+## 14. Uso recomendado
 
 O modelo pode ser usado para apoiar times de retenção de clientes, priorizando clientes com maior risco de churn.
 
@@ -154,7 +159,7 @@ Exemplo de uso:
 * monitorar segmentos com maior tendência de cancelamento;
 
 
-## 14. Uso não recomendado
+## 15. Uso não recomendado
 
 O modelo não deve ser usado como única fonte de decisão para:
 
@@ -164,7 +169,7 @@ O modelo não deve ser usado como única fonte de decisão para:
 * tomar decisões sensíveis sem revisão humana;
 
 
-## 15. Limitações
+## 16. Limitações
 
 * O modelo foi treinado com um dataset histórico e pode não refletir mudanças recentes do mercado.
 * A MLP não superou claramente o Gradient Boosting e a Regressão Logística.
@@ -174,7 +179,7 @@ O modelo não deve ser usado como única fonte de decisão para:
 * Não há monitoramento real de drift nesta etapa.
 
 
-## 16. Riscos
+## 17. Riscos
 
 Possíveis riscos:
 
@@ -186,7 +191,7 @@ Possíveis riscos:
 No contexto de churn, falsos negativos podem ser especialmente relevantes, porque representam clientes que poderiam ter recebido ações de retenção, mas não foram identificados.
 
 
-## 17. Monitoramento recomendado
+## 18. Monitoramento recomendado
 
 Em produção, recomenda-se monitorar:
 
@@ -200,6 +205,6 @@ Em produção, recomenda-se monitorar:
 * métricas reais após obtenção do churn observado;
 
 
-## 18. Responsável pela solução
+## 19. Responsável pela solução
 
 Projeto acadêmico desenvolvido para o Tech Challenge 01 FIAP 9MLET

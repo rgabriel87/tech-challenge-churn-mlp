@@ -134,7 +134,29 @@ python -m venv .venv
 pip install -r requirements.txt
 
 
-## 7. Como treinar os modelos baseline
+## 7. Análise Exploratória dos Dados
+
+A análise exploratória foi registrada no notebook:
+
+```text
+notebooks/01_eda_telco_churn.ipynb
+```
+
+O notebook contém:
+
+* volume do dataset;
+* tipos de dados;
+* verificação de valores ausentes;
+* distribuição da variável alvo `Churn`;
+* análise de variáveis numéricas;
+* análise de churn por tipo de contrato;
+* análise de churn por método de pagamento;
+* principais conclusões para a modelagem.
+
+Pra executar o notebook, abra o arquivo no VS Code ou Jupyter e selecione o kernel Python 3.11.
+
+
+## 8. Como treinar os modelos baseline
 Execute:
 python -m src.churn.train_baselines
 
@@ -148,7 +170,7 @@ Os resultados são salvos em:
 `models/baseline_results.json`
 
 
-## 8. Como treinar a MLP em PyTorch
+## 9. Como treinar a MLP em PyTorch
 Execute:
 python -m src.churn.train_mlp
 
@@ -158,7 +180,7 @@ Esse comando treina a rede neural MLP, aplica early stopping, registra métricas
 * models/mlp_metadata.json
 
 
-## 9. Resultados dos modelos
+## 10. Resultados dos modelos
 
 * 9.1 Baselines
 
@@ -178,7 +200,7 @@ Esse comando treina a rede neural MLP, aplica early stopping, registra métricas
 Observação: Também foi executada validação cruzada estratificada com `StratifiedKFold` em 5 folds para os modelos baseline, com os resultados salvos em `models/stratified_cv_results.json` e registrados no MLflow.
 
 
-## 10. Interpretação dos resultados
+## 11. Interpretação dos resultados
 
 O modelo DummyClassifier teve ROC-AUC de 0.50, funcionando como referência mínima.
 
@@ -189,7 +211,7 @@ A MLP PyTorch cumpriu o objetivo principal do desafio ao demonstrar uma rede neu
 Em dados tabulares, é comum que modelos como Gradient Boosting ou Logistic Regression sejam competitivos ou até superiores a redes neurais simples. Por isso, a comparação com baselines é essencial para avaliar se a complexidade adicional da rede neural é justificada.
 
 
-## 11. Como visualizar experimentos no MLflow
+## 12. Como visualizar experimentos no MLflow
 Executar:
 mlflow ui
 
@@ -205,7 +227,7 @@ Os experimentos registrados incluem:
 * artefatos;
 
 
-## 12. Como rodar a API
+## 13. Como rodar a API
 
 Execute:
 uvicorn src.churn.api:app --reload
@@ -214,7 +236,7 @@ Depois acesse:
 http://127.0.0.1:8000/docs
 
 
-## 13. Endpoints da API
+## 14. Endpoints da API
 
 | Método | Endpoint   | Descrição                                                   |
 | ------ | ---------- | ----------------------------------------------------------- |
@@ -223,7 +245,7 @@ http://127.0.0.1:8000/docs
 | POST   | `/predict` | Recebe dados de um cliente e retorna a previsão de churn    |
 
 
-## 14. Exemplo de requisição para /predict (JSON)
+## 15. Exemplo de requisição para /predict (JSON)
 
 {
   "gender": "Female",
@@ -248,7 +270,7 @@ http://127.0.0.1:8000/docs
 }
 
 
-## 15. Exemplo de resposta da API (JSON)
+## 16. Exemplo de resposta da API (JSON)
 
 
 {
@@ -267,7 +289,7 @@ churn_probability = 0.6846: probabilidade estimada de churn de 68,46%;
 risk_level = medio: risco classificado como médio;
 
 
-## 16. Como rodar os testes
+## 17. Como rodar os testes
 Execute:
 pytest
 
@@ -275,7 +297,7 @@ Resultado esperado:
 5 passed
 
 
-## 17. Como rodar o lint
+## 18. Como rodar o lint
 Execute:
 ruff check .
 
@@ -283,7 +305,7 @@ Resultado esperado:
 All checks passed!
 
 
-## 18. Reprodutibilidade
+## 19. Reprodutibilidade
 
 O projeto utiliza:
 
@@ -297,7 +319,7 @@ O projeto utiliza:
 * validação cruzada estratificada com StratifiedKFold em 5 folds para os modelos baseline
 
 
-## 19. Limitações
+## 20. Limitações
 
 Algumas limitações do projeto:
 
@@ -309,7 +331,7 @@ Algumas limitações do projeto:
 * o deploy em nuvem não foi implementado nesta versão;
 
 
-## 20. Próximos passos
+## 21. Próximos passos
 
 Possíveis melhorias futuras:
 

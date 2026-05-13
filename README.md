@@ -127,16 +127,11 @@ tech-challenge-churn-mlp/
 
 ## 6. Como configurar o ambiente
 
-```text
-* 6.1 Criar ambiente virtual - Execute:
-python -m venv .venv
+* 6.1 Criar ambiente virtual - Execute: `python -m venv .venv`
 
-* 6.2 Ativar ambiente virtual no Windows - Execute:
-.venv\Scripts\activate
+* 6.2 Ativar ambiente virtual no Windows - Execute: `.venv\Scripts\activate`
 
-* 6.3 Instalar dependências - Execute:
-pip install -r requirements.txt
-```
+* 6.3 Instalar dependências - Execute: `pip install -r requirements.txt`
 
 ## 7. Análise Exploratória dos Dados
 

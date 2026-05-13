@@ -61,7 +61,7 @@ Principais variáveis utilizadas:
 | Churn           | Indica se houve cancelamento                |
 
 
-## ## 4. Estrutura do projeto
+## 4. Estrutura do projeto
 
 ```text
 tech-challenge-churn-mlp/
